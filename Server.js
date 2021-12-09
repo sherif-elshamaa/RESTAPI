@@ -15,28 +15,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // this get API will retrieve all users from users collection
-app.get('/', (req, res) => {
-    findUsers(req, res);
-})
+app.get('/', findUsers)
 
 // this post API add new users to the collection 
 // expect user object on req.body
-app.post('/add', (req, res) => {
-    createUser(req, res);
-})
+app.post('/add', createUser)
 
 // this put API will update certain user on collection
 // expect user id on req.params
 // expect new user values object on req.body
-app.put('/update/:id', (req, res) => { 
-    findByIdUpdate(req, res);
-})
+app.put('/update/:id', findByIdUpdate)
 
 // this delete API will delete certain user on collection
 // expect user id on req.params
-app.delete('/delete/:id', (req, res) => {
-    findByIdAndRemove(req, res)
-})
+app.delete('/delete/:id', findByIdAndRemove)
 
 
 
